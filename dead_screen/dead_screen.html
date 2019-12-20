@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>mort</title>
+    
+
+    <script>
+			(function(obj)
+			{
+				ue.game = {};
+				ue.game.callevent = function(name, ...args)
+				{
+					if (typeof name != "string") {
+						return;
+					}
+		
+					if (args.length == 0) {
+						obj.callevent(name, "")
+					}
+					else {
+						let params = []
+						for (let i = 0; i < args.length; i++) {
+							params[i] = args[i];
+						}
+						obj.callevent(name, JSON.stringify(params));
+					}
+				};
+			})(ue.game);
+			CallEvent = ue.game.callevent;
+    </script>
+  <style>
+      
+        @font-face {
+            font-family: SourceSansPro-Regular;
+            src: url('source-sans-pro/SourceSansPro-Regular.ttf');
+        }
+
+        @font-face {
+            font-family: SourceSansPro-Bold;
+            src: url('source-sans-pro/SourceSansPro-Bold.ttf');
+        }
+
+        @font-face {
+            font-family: JosefinSans-Bold;
+            src: url('JosefinSans/JosefinSans-Bold.ttf');
+        }
+
+    /*body{
+        background-image: url(back2.jpg);
+    }*/
+
+    .page{
+        position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+        background-color: black;
+        opacity: 0.9;
+    }
+
+    .hud{
+        /*border: 1px solid white;*/
+        font-family: SourceSansPro-Regular, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10em;
+    }
+
+   #texte{
+        /*border: 1px solid white;*/
+        font-size: 5em;
+        /*text-align: center;*/
+        color: white;
+        opacity: 0.8;
+        margin-bottom:50px;
+    }
+
+    #med{
+        font-size: 2em;
+        color: white;
+        opacity: 0.8;
+        margin:5px;
+    }
+
+    #res{
+        font-size: 2em;
+        /*text-align: center;*/
+        color: white;
+        opacity: 0.8;
+        margin-top: 10em;
+        margin-bottom: 25px;
+    }
+
+    .bouton {
+        font-family: SourceSansPro-Regular;
+        user-select: none;
+        position: relative;
+        width: 10%;
+        margin-bottom: 5px;
+        border:0;
+        cursor: pointer;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #3f72af;
+        padding: 14px 40px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+        font-size: 18px;
+    }
+
+    .bouton:hover{
+        background:#3f72af;
+
+    }
+
+    strong{
+        color: yellow;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <div class="hud">
+            <div id="texte">Vous êtes inconscient.</div>
+            <div id="med">Le médecin le plus proche a été alerté et se trouve à <strong>1320</strong> m.</div>
+            <div id="res">Réaparition possible dans <strong>120</strong> secondes.</div>
+            <div class="bouton">
+                    REAPPARAITRE
+            </div>
+        </div>
+    </div>    
+</body>    
