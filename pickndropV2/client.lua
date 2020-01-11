@@ -1,8 +1,8 @@
 AddEvent("OnKeyPress", function(key)
-    if key == "G" and not then
+    if key == "G" then
         CallRemoteEvent("DropGun")
     elseif
-        key == "E" and not then
+        key == "E" then
             CallRemoteEvent("PickupGun")       
     end
 end)
