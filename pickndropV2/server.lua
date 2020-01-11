@@ -84,12 +84,4 @@ AddRemoteEvent("PickupGun", function(player)
             -- obj =/ gun
         end
     end
-end)               
-                
-    
-
-
---return CallRemoteEvent(player, "MakeNotification", _("need_tool"), "linear-gradient(to right, #ff5f6d, #ffc371)")
---[[AddRemoteEvent("StopAnimation", function(playerid)
-    SetPlayerAnimation(playerid, "STOP")
-end)]]
+end)     
