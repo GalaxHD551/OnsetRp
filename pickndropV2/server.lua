@@ -51,7 +51,6 @@ AddRemoteEvent("PickupGun", function(player)
         
         if closest.id and closest.distance ~= nil then
             if closest.distance / 100 < 1.5 then
-                -- blabla weapon
                 local model = GetObjectPropertyValue(closest.id, "model")
                 local ammo = GetObjectPropertyValue(closest.id, "ammo")
                 --local magazine = GetObjectPropertyValue(closest.id, "magazine")
