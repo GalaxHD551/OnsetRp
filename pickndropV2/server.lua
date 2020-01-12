@@ -1,16 +1,19 @@
 local _objects = nil
 
 AddRemoteEvent("DropGun", function(player)
-    if GetPlayerWeapon(player, GetPlayerEquippedWeaponSlot(player)) ~= 1 then
+        if GetPlayerWeapon(player, GetPlayerEquippedWeaponSlot(player)) ~= 1 then
         model, ammo, magazine = GetPlayerWeapon(player, GetPlayerEquippedWeaponSlot(player))
         x, y, z = GetPlayerLocation(player)
         h = GetPlayerHeading(player)
-        droppedgun = CreateObject(model + 2, x, y, z - 95, 90, h - 90)
+            if GetPlayerWeapon(player, GetPlayerEquippedWeaponSlot(player)) ~= 21 then
+                droppedgun = CreateObject(model + 2 ,x, y, z - 95, 90, h -90)
+            else
+                droppedgun = CreateObject(model + 1387, x, y, z - 95, 90, h - 90)
+            end
         SetObjectPropertyValue(droppedgun, "isgun", true, true)
-		SetObjectPropertyValue(droppedgun, "collision", false, true)
-		SetObjectPropertyValue(droppedgun, "model", model, true)
-		SetObjectPropertyValue(droppedgun, "ammo", ammo, true)
-		--SetObjectPropertyValue(droppedgun, "magazine", magazine, true)
+	SetObjectPropertyValue(droppedgun, "collision", false, true)
+	SetObjectPropertyValue(droppedgun, "model", model, true)
+        SetObjectPropertyValue(droppedgun, "ammo", ammo, true)
         SetPlayerWeapon(player, 1, 0, true, GetPlayerEquippedWeaponSlot(player), false)
         SetPlayerAnimation(player, "CARRY_SHOULDER_SETDOWN")
     else
